@@ -1,0 +1,52 @@
+
+*{
+   font-size: 14px;
+   color: #000;
+   font-family: Arial;
+   font-weight: 600; /*How could you add weight to the global font definition to win over the classes added by point 3?*/
+}
+
+.header{
+  background-color: #0000FF;
+  text-align: center;
+  font-size:46px;
+}
+.navigation{
+  background-color: #ff0000;
+  font-size: 12px;
+  width:25%;
+}
+.content{
+  font-size: 14px;
+  text-align: center;
+  width:50%;
+}
+.sidebar{
+  background-color: #ffff00;
+  font-size: 10px;
+  width:25%;
+}
+.footer{
+  clear: both;
+  background-color: #008000;
+  text-align: center;
+  font-size: 10px;
+}
+
+
+.navigation, .content, .sidebar{
+  float: left;
+  margin-top: 5px;
+}
+
+*[class*="a"]   {/*If the class attribute contains an a (example nav) but do NOT finish with r, the background must be blue*/
+  background-color: #0000FF;
+}
+
+*[class$="r"]{/*If the class attribute finishes with r (example header, footer), the background must be magenta.*/
+  background-color: #FF00FF;
+}
+
+article .oh-no-inline-styles{
+  background-color: green;/*the only solution i could find was this*/
+}
