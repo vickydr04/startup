@@ -8,6 +8,7 @@ $(document).ready(function() {
             success: function(data) {
                 if (data.type == 'success') {
                     $('.hidden').html('<p>' + data.value.joke + '</p>');
+                    $('.hidden').css('background-color', 'green');
                 }
             },
             error: function(data) {
@@ -15,4 +16,5 @@ $(document).ready(function() {
             }
         });
     });
+
 });
