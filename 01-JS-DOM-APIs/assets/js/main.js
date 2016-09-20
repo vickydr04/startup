@@ -16,32 +16,38 @@ $(document).ready(function() {
             }
         });
     });
-    spotifySearch();
+
+    $('#band').on('change', (function() {
+        value = $('#band').val();
+        if (value == ' ') { // verifica que no haya valores, si no hay, ejecuta la funcion
+            spotifySearch(value);
+        } else { //si hay elimina lo anterior e invoca la funcion
+            $('article').remove();
+            spotifySearch(value);
+        }
+    }));
 });
 
 
-function spotifySearch() {
+function spotifySearch(value) {
     var data = {
-        q: 'Rolling Stones',
+        q: value,
         type: 'album'
     }
-    $('#albums').append('<h1> Listen to the songs of ' + data.q + '</h1>');
+    $('h1').remove(); //elimina el titulo para actualizarlo
+    $('#albums').append('<h1> Check the albums of ' + data.q + '</h1>');
     $.ajax({
         method: 'GET',
         url: 'https://api.spotify.com/v1/search',
         contentType: 'application/json; charset=utf-8',
         data: $.param(data),
         success: function(data) {
-            console.log(data.q);
-
             $.each(data.albums.items, function(i, album) {
-
                 showAlbum(album);
-
             });
         },
         error: function(data) {
-
+            alert("Something went wrong, please contact support");
         }
     });
 }

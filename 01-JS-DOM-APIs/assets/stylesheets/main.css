@@ -34,6 +34,7 @@ article {
     margin-bottom: 1.000em;
     padding: 5%;
     border-bottom: 4px solid;
+    min-height: 180px;
 }
 
 footer{
