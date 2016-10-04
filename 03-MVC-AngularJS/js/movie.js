@@ -1,3 +1,5 @@
+
+// 3 - Create the same Movie class as in the previous practice, but inside a CommonJS module.
 function Movie() {
     this.attributes = {};
 }
